@@ -146,6 +146,7 @@ _这些说明已在 **Ubuntu 24.04** 中测试过。_
 
 
 ## 拉取国内镜像  <span id="china_image"></span>
+为了在国内更快速拉取镜像，可以使用国内的镜像源：
 ```shell
 docker pull registry.cn-beijing.aliyuncs.com/synkrotron/carla:0.9.16
 # 查看已经拉取成功的镜像信息
@@ -168,5 +169,5 @@ python automatic_control.py
 
 ## 参考
 
-* [Docker 版 CARLA 快速部署指南（附阿里云稳定镜像）](https://mp.weixin.qq.com/s/3JbsnfW4KSrJTfPskGQ58w)
+* [Docker 版 CARLA 快速部署指南（附阿里云稳定镜像）](https://mp.weixin.qq.com/s/1CvvEE6-vip_yfFZt3TGsA)
 

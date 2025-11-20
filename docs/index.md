@@ -246,6 +246,10 @@ title: 主页
 
 [__添加新道具__](tuto_A_add_props.md) — 将其他道具导入 HUTB
 
+[__定制材料__](tuto_A_material_customization.md) — 编辑车辆和建筑材料
+
+[__基于摄影测量的三维重建__](./tutorial/meshroom.md) - 使用手持设备进行特定目标的三维模型重建 
+
 [__添加摩擦触发器__](tuto_G_add_friction_triggers.md) — 定义车轮的动态框触发器
 
 [__控制车辆物理模型__](tuto_G_control_vehicle_physics.md) — 设置车辆物理的运行时的变化
@@ -255,8 +259,6 @@ title: 主页
 [__内容创作-车辆__](tuto_content_authoring_vehicles.md) — 自定义车辆的创作
 
 [__创建独立包__](tuto_A_create_standalone.md) — 为资产生成和处理独立包
-
-[__材料定制__](tuto_A_material_customization.md) — 编辑车辆和建筑材料
 
 [__如何升级内容__](tuto_D_contribute_assets.md) — 向 HUTB 添加新内容
 

@@ -152,6 +152,10 @@
 - Blender  
 - Windows 3D 查看器  
 
-```markdown
-![重建结果](..\doc\docs\img\model_preview.png)
--[下载 3D 模型](https://pan.quark.cn/s/9d989d5757d9)
+
+![重建结果](../img/model_preview.png)
+
+## 其他
+
+- [下载 3D 模型](https://pan.quark.cn/s/9d989d5757d9)
+- [基于摄影测量的三维重建详细教程](https://openhutb.github.io/3d/)

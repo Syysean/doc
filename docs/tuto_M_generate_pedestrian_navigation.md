@@ -81,6 +81,26 @@ __7.__ 通过启动模拟并运行 `PythonAPI/examples` 中的示例脚本 `gene
 !!! 笔记
     **如果更新地图后需要重建行人导航** ，请确保删除 [Carla 缓存](https://github.com/OpenHUTB/carla/blob/9d52060b7d79b374764f147087f18ffa95c8b476/LibCarla/source/carla/client/FIleTransfer.cpp#L13) 。这通常可以在 Ubuntu 的主目录（即`cd ~`）中找到，或者在Windows的用户目录（分配给环境变量`USERPROFILE`的目录）中，删除名为`carlaCache`的文件夹及其所有内容，它可能很大。 
 
+
+## 生成大地图的行人导航信息
+
+1.在引擎编辑器中，打开每个图块并筛选名称中包含`_Roads_`的对象。然后使用`文件-> Carla Exporter`。这将生成36个（城镇13为48个）.obj文件，这些文件描述了与行人导航相关的网格。
+
+2.每个.obj文件都使用其图块的局部坐标系，因此需要将数据转换到全局坐标系，全局坐标系在 Town12（或 Town13）文件中进行了描述。使用 `convert2global.py` 脚本进行转换。
+
+3.现在所有坐标都已转换为全局坐标系，请使用`Util/DockerUtils/dist`下面的文件`addOBJ.py`将所有图块添加到一个`Town12.obj`（或`Town13.obj`）文件中。
+
+4.现在将`.xodr`文件复制到已创建`.obj`文件旁边，并使用`./build.sh Town12`。此过程大约需要一到两个小时才能完成。
+
+
+## 参考
+
+
+
+
+
+* [生成大地图的行人导航信息](https://github.com/carla-simulator/carla/issues/6552#issuecomment-1977949945)
+
 ---
 
 如有任何问题，您可以在 [讨论](https://github.com/orgs/OpenHUTB/discussions) 中提问。

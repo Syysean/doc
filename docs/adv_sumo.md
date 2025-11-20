@@ -23,7 +23,7 @@ echo "export SUMO_HOME=/usr/share/sumo" >> ~/.bashrc && source ~/.bashrc
 
 SUMO 已准备好运行联合模拟。 `Co-Simulation/Sumo/examples` 中有一些 __Town01__, __Town04__ 和 __Town05__ 的示例。这些文件描述了模拟的配置（例如网络、路线、车辆类型...）。使用其中之一来测试联合模拟。该脚本有不同的选项，[下面](#run-the-synchronization) 将详细介绍。现在，让我们为 __Town04__ 运行一个简单的示例。
 
-使用 __Town04__ 运行 Carla 模拟。  
+使用 __Town04__ 运行 Carla 模拟。
 ```sh
 cd ~/carla
 ./CarlaUE4.sh

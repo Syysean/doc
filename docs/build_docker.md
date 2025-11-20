@@ -12,6 +12,10 @@
 - [__在你开始之前__](#before_you_begin)
 - [__在容器中运行 Carla__](#running_carla_in_a_container)
 - [__离屏模式__](#off_screen_mode)
+- [__开发容器__](#Devcontainer)
+- [__拉取国内镜像__](#china_image)
+
+
 
 ---
 ## 在你开始之前 <span id="before_you_begin"></span>
@@ -132,7 +136,7 @@ HUTB 论坛</a>
 
 ---
 
-## 开发容器(Devcontainer): 基于镜像的Ubuntu 22.04
+## 开发容器(Devcontainer): 基于镜像的Ubuntu 22.04 <span id="dev_container"></span>
 
 _这些说明已在 **Ubuntu 24.04** 中测试过。_
 
@@ -141,7 +145,7 @@ _这些说明已在 **Ubuntu 24.04** 中测试过。_
 - [CARLA Docker 开发环境 (Ubuntu 22.04)](build/build_docker_ubuntu22.md)
 
 
-## 拉取国内镜像
+## 拉取国内镜像  <span id="china_image"></span>
 ```shell
 docker pull registry.cn-beijing.aliyuncs.com/synkrotron/carla:0.9.16
 # 查看已经拉取成功的镜像信息

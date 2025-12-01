@@ -1,5 +1,5 @@
 
-## 大文件支持
+# 大文件支持
 
 ```shell
 git init .
@@ -29,6 +29,29 @@ git checkout -- .
 git reset HEAD
 ```
 
+
+## 资产仓库
+目前使用的是腾讯工蜂社区版 git lfs 进行资产管理
+
+###### 查看仓库的容量
+
+进入 [项目首页](https://git.code.tencent.com/OpenHUTB/Content) （如果没有权限访问，则注册后发送用户名到 [whd@hutb.edu.cn](whd@hutb.edu.cn) ），打开左侧的`设置->高级设置`，在页面中选择`版本库设置`。该产品的版本库为5GB，LFS储存为500GB。
+
+###### 注册网络回调钩子
+
+按照上一步中的操作，进入`设置->高级设置->网络回调钩子`，设置 Url 和秘密令牌，当有推送事件时候触发 hutb 仓库的编译。
+
+## 常见问题
+
+###### 拉取时候出现错误：smudge filter lfs failed
+设置以下命令后再拉取
+```shell
+# 跳过污点：稍后会以更快的速度批量下载二进制文件。
+set GIT_LFS_SKIP_SMUDGE=1
+git pull
+# 获取二进制文件
+git lfs pull
+```
 
 
 

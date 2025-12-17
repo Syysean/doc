@@ -30,11 +30,13 @@ title: 主页
 
 **入门示例**
 
-1. 下载 [链接](https://pan.baidu.com/s/1n2fJvWff4pbtMe97GOqtvQ?pwd=hutb) 中的`software/hutb/hutb_*.zip`并解压；
+1. 下载 [链接](https://pan.baidu.com/s/1n2fJvWff4pbtMe97GOqtvQ?pwd=hutb) 中的`software/hutb/hutb_car_vr_air_mujoco.zip`并解压运行`WindowsNoEditor`文件夹下的`CarlaUE4.exe`启动场景，按`W`、`S`、`A`、`D` 进行场景浏览；
 
-2. 运行`WindowsNoEditor`文件夹下的`CarlaUE4.exe`启动场景，按`W`、`S`、`A`、`D` 进行操作；
-
-3. 使用`pip install hutb` 安装 Python 功能包（或者使用 pip 安装`PythonAPI/carla/dist/hutb-*.whl`），然后运行`PythonAPI/examples`中的脚本： [generate_traffic.py](https://github.com/OpenHUTB/doc/blob/master/src/examples/generate_traffic.py) 生成交通流、[manual_control.py](https://github.com/OpenHUTB/doc/blob/master/src/examples/manual_control.py) 生成一辆键盘控制的车。如果运行报错，请参考 [解决方法](faq/use_faq.md)。
+3. 使用`pip install hutb` 安装 Python 功能包（或者使用 pip 安装特定版本的`PythonAPI/carla/dist/hutb-*.whl`），然后运行`PythonAPI/examples`中的脚本：
+   * [manual_control.py](https://github.com/OpenHUTB/doc/blob/master/src/examples/manual_control.py) 生成一辆键盘控制的车，`manual_control.py  --filter walker.pedestrian.*`生成键盘控制的人
+   * [generate_traffic.py](https://github.com/OpenHUTB/doc/blob/master/src/examples/generate_traffic.py) 生成人车流
+   * 切换到 [VR 模式](interbehavior.md) ：[config.py](https://github.com/OpenHUTB/hutb/blob/hutb/PythonAPI/util/config.py) --map Town10HD?GAME=VR ；切换到[无人机模式](https://openhutb.github.io/air_doc/) ：`config.py --map Town10HD?GAME=AIR`
+   * 如果运行报错，请参考 [解决方法](faq/use_faq.md)。
 
 
 

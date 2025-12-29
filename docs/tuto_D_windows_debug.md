@@ -37,7 +37,7 @@
 
 * 调式 **虚幻编辑器启动** ：断点打在`Carla/Vehicle/VehicleSpawnPoint.h`的第16行，通过vs启动调试后启动虚幻便器到75%时候会停止。
 
-* 调试 **Python 调用**：断点打在 `Carla/Server/CarlaServer.cpp`的第 721行，然后运行`manual_control.py`（调用`try_spawn_actor`方法生成参与者）则会在断点处停止。
+* 调试 **Python 调用**：断点打在 [`Server/CarlaServer.cpp`](https://github.com/OpenHUTB/hutb/blob/04b87b07133148b660d0bbb773f58e754bb20cd7/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Server/CarlaServer.cpp#L729) 的 spawn_actor 函数内，然后运行`manual_control.py`（调用`try_spawn_actor`方法生成参与者）则会在断点处停止（load_new_episode 对应 client.LoadWorld() 调用）。
 
 配置管理器包括：
 
@@ -83,13 +83,20 @@ install_boost_debug.bat --build-dir C:\buf --toolset msvc-14.2 --version 1.80.0 
 1.2 将[`install_recast.bat`](https://github.com/carla-simulator/carla/blob/dev/Util/InstallersWin/install_recast.bat) 中的`Relase`改为`Debug`。
 将`-DCMAKE_CXX_FLAGS_RELASE="/MD /MP"`改为多线程调试DLL`-DCMAKE_CXX_FLAGS_DEBUG="/MDd /MP"`，（或者将 [install_recast_debug.bat](https://github.com/OpenHUTB/doc/blob/master/src/cmake/install_recast_debug.bat) 拷贝到`Util/InstallerWin`目录下），然后运行[`install_recast_debug.bat`](https://github.com/OpenHUTB/doc/tree/master/src/cmake/install_recast_debug.bat) 。
 ```shell
+# 对于 vs 2019
 install_recast_debug.bat --build-dir C:\buf --generator "Visual Studio 16 2019"
+# 对于 vs 2022，注意使用其他目录可能会报错：CMake Error: The source directory "D:/hutb/Util" does not appear to contain CMakeLists.txt.
+install_recast.bat --build-dir D:\hutb\Build --generator "Visual Studio 17 2022" --build-debug true
+# 生成的 hutb\Build\recast-install\lib\Recast-d.lib 比 release 版多了 -d
 ```
 
 1.3 将[`install_rpclib.bat`](https://github.com/carla-simulator/carla/blob/dev/Util/InstallersWin/install_rpclib.bat) 中的`Relase`改为`Debug`，运行[`install_rpclib.bat`](https://github.com/OpenHUTB/doc/tree/master/src/cmake/install_rpclib.bat) 。
 将`-DCMAKE_CXX_FLAGS_RELASE="/MD /MP"`改为多线程调试DLL`-DCMAKE_CXX_FLAGS_DEBUG="/MDd /MP"`。或者将[install_rpclib_debug.bat](https://github.com/OpenHUTB/doc/blob/master/src/cmake/install_rpclib_debug.bat) 拷贝到`Util/InstallerWin`目录下），然后运行：
 ```shell
 install_rpclib_debug.bat --build-dir C:\buf --generator "Visual Studio 16 2019"
+# 对于 vs 2022
+install_rpclib.bat --build-dir D:\hutb\Build\debug --generator "Visual Studio 17 2022" --build-debug true
+# 生成的 hutb\Build\rpclib-install\lib\rpc.lib 文件名不变，debug 的版本文件变小了
 ```
 
 

@@ -47,7 +47,7 @@
 
 * **DebugGame**：游戏代码可调试无优化，Editor相关代码功能不可使用，引擎不可调试，资源需要Cook。
 
-* **DebugGame Editor**：游戏代码可调试无优化，可以使用Editor相关代码功能，引擎不可调试，资源不需要Cook。
+* **DebugGame Editor**：游戏代码可调试，无优化，可以使用Editor相关代码功能，引擎不可调试，资源不需要Cook。
 
 * **Development**：游戏、编辑器、引擎都不可调试，Editor相关代码功能不可使用，资源需要Cook。（The global shader cache file 'D:/work/workspace/engine/Engine/GlobalshaderCache-PCD3D_M5.bin' is missing.）
 

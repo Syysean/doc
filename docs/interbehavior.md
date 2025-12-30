@@ -1,16 +1,12 @@
 # 虚拟现实驾驶模拟器
 欢迎来到针对行为和交互研究的虚拟现实驾驶模拟器。
 
-<iframe width="100%" height="400px" src="https://www.youtube.com/embed/yGIPSDOMGpY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+![](./img/pedestrian/VR_demo.gif)
 
-<!-- [![Main Figure](interbehavior/Figures/demo.gif)](https://www.youtube.com/watch?v=yGIPSDOMGpY) -->
-
-<!-- [视频演示 (YouTube)](https://www.youtube.com/watch?v=yGIPSDOMGpY) -->
-<!-- Welcome to the DReyeVR wiki! -->
 
 该模块扩展了 [`Carla`](https://github.com/OpenHUTB/carla) 模拟器，增加了虚拟现实集成、第一人称可操纵的自主车辆、眼动追踪支持和多种沉浸感增强功能。
 
-如果您有任何疑问，希望我们的常见问题解答 [F.A.Q. 维基页面](https://github.com/HARPLab/DReyeVR/wiki/Frequently-Asked-Questions) 和 [问题页面](https://github.com/HARPLab/DReyeVR/issues?q=is%3Aissue+is%3Aclosed) 可以解答其中的一些问题。
+如果您有任何疑问，希望我们的常见问题解答 [F.A.Q. 维基页面](https://github.com/HARPLab/DReyeVR/wiki/Frequently-Asked-Questions) 和 [问题页面](https://github.com/HARPLab/DReyeVR/issues?q=is%3Aissue+is%3Aclosed) 可以解答其中的一些问题。详细请查看 [视频演示(YouTube)](https://www.youtube.com/watch?v=yGIPSDOMGpY) 。
 
 **重要提示：** 目前 DReyeVR 仅支持基于 Unreal Engine 4.26 的 Carla 版本：[0.9.13](https://github.com/carla-simulator/carla/tree/0.9.13) 、[HUTB](https://github.com/OpenHUTB/hutb) 。
 

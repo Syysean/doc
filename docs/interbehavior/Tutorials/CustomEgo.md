@@ -4,7 +4,7 @@
 
 ## 先决条件
 - 您应该已经安装 DReyeVR 并正常运行
-- 如果您想修改新车辆的静态网格，您可能应该查看 [Model.md](Model.md)：
+- 如果您想修改新车辆的静态网格，您可能应该查看 [修改车辆模型](Model.md)：
     - 例如，创建高多边形镜像网格
     - 例如，拆下方向盘用作动态道具（随动画移动）
 
@@ -122,7 +122,8 @@ VehicleType="Ambulance"
 
 请参阅 [此处](https://carla.readthedocs.io/en/latest/tuto_A_add_vehicle/#import-and-configure-the-vehicle) 的 Carla 相应文档。
 
-!!! 注意 截至测试，这仅适用于 4WheeledVehicles。2WheeledVehicles 更为复杂，本教程未涉及。
+!!! 注意
+      截至测试，这仅适用于四轮载具(4WheeledVehicles)。二轮载具(2WheeledVehicles)更为复杂，本教程未涉及。
 
 ### 为 Carla/DReyeVR 创建新动画蓝图的步骤
 1.在 Ambulance/Mesh 目录中创建一个新的动画蓝图（如果有的话，否则在 `Ambulance` 内创建一个新的文件夹 `Mesh/`）。

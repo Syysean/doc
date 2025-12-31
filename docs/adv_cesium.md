@@ -2,7 +2,7 @@
 
 ## 导入道路和红绿灯
 
-0.将`RoadRunner插件.zip`解压到`carla\Unreal\CarlaUE4\Plugins`，运行`make launch`重启编辑器。
+0.将 [链接](https://pan.baidu.com/s/1n2fJvWff4pbtMe97GOqtvQ?pwd=hutb) 中的 `software/cesium/RoadRunner插件.zip`解压到`carla\Unreal\CarlaUE4\Plugins`，运行`make launch`重启编辑器。
 
 1.在`carla\Unreal\CarlaUE4\Content\roadrunner`中新建`static`（放资产）和`map`（放地图）；
 

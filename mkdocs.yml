@@ -63,6 +63,7 @@ nav:
 
 # - mdx_math 用于行内公式显示
 markdown_extensions:
+  - pymdownx.blocks.html
   - admonition
   - mdx_math
   - pymdownx.superfences:

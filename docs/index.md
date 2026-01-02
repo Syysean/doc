@@ -4,7 +4,8 @@ title: 主页
 
 欢迎使用人车模拟文档，该页面包含 [具身人](#pedestrian) 、[无人车](#vehicle)、[无人机](https://openhutb.github.io/air_doc/) 所有内容的索引。阅读 [基础](#primary) 部分相关内容后可以按自己喜欢的顺序随意阅读。
 
-
+<!-- 参考：https://github.com/squidfunk/mkdocs-material/issues/6845#issuecomment-2192879200 -->
+/// html | div[style='float: left; width: 50%;']
 * [__简介__](#primary)  
     * [入门](#introduction)
     * [行人](#pedestrian) 
@@ -13,6 +14,9 @@ title: 主页
     * [概念](#concept)
     * [模块](#modules) 
     * [开发](#development)
+///
+
+/// html | div[style='float: right;width: 50%;']
 * [__场景__](#scene)
     * [地图孪生](#map_twin)
     * [资产孪生](#assert_twin)
@@ -20,8 +24,13 @@ title: 主页
 * [__其他__](#other)
     * [参考目录](#ref)
     * [生态系统](#ecology)
-    * [基准测试](#test)
     * [贡献指南](#contribution)
+///
+
+
+
+
+
     
 
 ---
@@ -30,7 +39,7 @@ title: 主页
 
 **入门示例**
 
-1. 下载 [链接](https://pan.baidu.com/s/1n2fJvWff4pbtMe97GOqtvQ?pwd=hutb) 中的 software/hutb/hutb_car_vr_air_mujoco.zip，并解压运行 CarlaUE4.exe 启动场景，按 W、S、A、D 键进行场景浏览；
+1. 下载 [链接](https://pan.baidu.com/s/1n2fJvWff4pbtMe97GOqtvQ?pwd=hutb) 中的 software/hutb/hutb_car_vr_air_mujoco.zip，解压运行 CarlaUE4.exe 启动场景，按 W、S、A、D 键进行场景浏览；
 
 2. 安装特定 Python 版本的功能包：`pip install PythonAPI/carla/dist/hutb-*.whl`（或者使用`pip install hutb` 安装 ），然后运行 [PythonAPI/examples](https://github.com/OpenHUTB/hutb/tree/hutb/PythonAPI/examples) 中的脚本（如果运行报错，请参考 [解决方法](faq/use_faq.md)）：
 
@@ -351,7 +360,7 @@ title: 主页
 [__使用 Carla 的仓库列表__](used_by.md) - 收集引用了Carla 的相关库
 
 
-### 基准测试 <span id="test"></span>
+<!-- ### 基准测试 <span id="test"></span> -->
 
 [__自动驾驶排行榜__](leaderboard.md) - 评估自动驾驶人员在现实交通场景中的驾驶熟练程度
 

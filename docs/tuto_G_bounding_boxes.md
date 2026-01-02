@@ -356,7 +356,7 @@ cv2.destroyAllWindows()
 
 ## 导出边界框
 
-渲染边界框对于我们确保边界框对于调试目的是正确的很有用。然而，如果我们想在训练神经网络时实际使用它们，我们将需要导出它们。用于自动驾驶和物体检测的常见数据存储库使用多种不同的格式，例如[__KITTI__](http://www.cvlibs.net/datasets/kitti/) 或 [__PASCAL VOC__](http://host.robots.ox.ac.uk/pascal/VOC/) 或 [__MicroSoft COCO__](https://cocodataset.org/#home) 。
+渲染边界框对于我们确保边界框对于调试目的是正确的很有用。然而，如果我们想在训练神经网络时实际使用它们，我们将需要导出它们。用于自动驾驶和物体检测的常见数据存储库使用多种不同的格式，例如 [__KITTI__](http://www.cvlibs.net/datasets/kitti/) 或 [__PASCAL VOC__](http://host.robots.ox.ac.uk/pascal/VOC/) 或 [__MicroSoft COCO__](https://cocodataset.org/#home) 。
 
 ### Pascal VOC 格式
 

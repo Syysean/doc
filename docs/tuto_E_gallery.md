@@ -63,7 +63,10 @@
 
 示例 12 ：[反向AI控制](../src/examples/invertedai_traffic_ue5.py)
 
-报错：`{ProxyError}HTTPSConnectionPool(host='api.inverted.ai', port=443): Max retries exceeded with url: /v0/aws/m1 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1135)'))))`
+报错信息：
+```text
+{ProxyError}HTTPSConnectionPool(host='api.inverted.ai', port=443): Max retries exceeded with url: /v0/aws/m1 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1135)'))))
+```
 
 解决：
 ```shell

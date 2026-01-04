@@ -366,7 +366,7 @@ points = np.reshape(points, (len(radar_data), 4))
 | `sensor_tick` | float   | 0\.0    | 传感器捕获之间的模拟秒数（节拍）。               |
 | `vertical_fov`            | float   | 30\.0   | 垂直视野（以度为单位）。 |
 
-<br>
+
 
 #### 输出属性
 
@@ -374,7 +374,7 @@ points = np.reshape(points, (len(radar_data), 4))
 | ---------------- | ---------------- | ---------------- |
 | `raw_data`      | [carla.RadarDetection](<../python_api#carlaradardetection>) | 检测到的点列表。      |
 
-<br>
+
 
 | RadarDetection 属性 | 类型    | 描述      |
 |-------------------|-------| ---------------------------- |
@@ -391,8 +391,8 @@ points = np.reshape(points, (len(radar_data), 4))
 * __蓝图：__ sensor.camera.rgb
 * __输出：__ 每一步 [carla.Image](python_api.md#carla.Image) （除非`sensor_tick`另有说明）。
 
-“RGB”相机充当捕获场景图像的常规相机。
-[carla.colorConverter](python_api.md#carla.ColorConverter)
+“RGB”相机充当捕获场景图像的常规相机。使用
+[carla.colorConverter](python_api.md#carla.ColorConverter) 将深度检测的浮点数转换为 0 到 255 之间的灰度值。
 
 如果 `enable_postprocess_effects` 启用，为了真实感，一组后处理效果将应用于图像：
 

@@ -286,6 +286,8 @@ call "%UE4_ROOT%Engine\Build\BatchFiles\Build.bat"^
 
 完整报错信息：`C:\workspace\carla\Unreal\CarlaUE4\Plugins\Carla\Source\Carla\Vehicle/CarlaWheeledVehicle.h(9): fatal error C1083: 无法打开包括文件: “WheeledVehicle.h”: No such file or directory`
 
+解决：关闭 SimReady 插件暂时屏蔽错误，具体 [修改](https://github.com/OpenHUTB/hutb/commit/46bf00b330ab28ae8a6b0181ad848da9f696afd2) 。
+
 ###### [使用make PythonAPI编译报错：build\lib.win-amd64-cpython-37\carla\libcarla.cp37-win_amd64.pyd : fatal error LNK1169: 找到一个或多个多重定义的符号](https://github.com/carla-simulator/carla/issues/3621)
 出错命令`python setup.py bdist_egg bdist_wheel`。
 

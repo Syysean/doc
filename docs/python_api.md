@@ -252,7 +252,7 @@ Carla 为 Actor 提供了一个蓝图库，可以通过 [carla.BlueprintLibrary]
         - `value` (_str_) - 所述属性的新值。 
     - **获取器：** _[carla.ActorBlueprint.get_attribute](#carla.ActorBlueprint.get_attribute)_  
 
-##### Dunder 方法
+##### 魔术方法
 - <a name="carla.ActorBlueprint.__iter__"></a>**<font color="#7fb800">\__iter__</font>**(<font color="#00a6ed">**self**</font>)  
 在蓝图有的 [carla.ActorAttribute](#carla.ActorAttribute) 之上进行迭代。
 - <a name="carla.ActorBlueprint.__len__"></a>**<font color="#7fb800">\__len__</font>**(<font color="#00a6ed">**self**</font>)  
@@ -276,7 +276,7 @@ Carla 为 Actor 提供了一个蓝图库，可以通过 [carla.BlueprintLibrary]
         - `actor_id` (_int_)  
     - **返回：** _[carla.Actor](#carla.Actor)_  
 
-##### Dunder 方法
+##### 魔术方法
 - <a name="carla.ActorList.__getitem__"></a>**<font color="#7fb800">\__getitem__</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**pos**=int</font>)  
 返回与列表中`pos`位置相对应的参与者。
     - **返回：** _[carla.Actor](#carla.Actor)_  
@@ -365,7 +365,7 @@ Carla 为 Actor 提供了一个蓝图库，可以通过 [carla.BlueprintLibrary]
         - `id` (_str_)  
     - **返回：** _[carla.ActorBlueprint](#carla.ActorBlueprint)_  
 
-##### Dunder 方法
+##### 魔术方法
 - <a name="carla.BlueprintLibrary.__getitem__"></a>**<font color="#7fb800">\__getitem__</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**pos**=int</font>)  
 返回存储在包含蓝图的数据结构内`pos`位置的蓝图。 
     - **返回:** _[carla.ActorBlueprint](#carla.ActorBlueprint)_  
@@ -414,7 +414,7 @@ Carla 为 Actor 提供了一个蓝图库，可以通过 [carla.BlueprintLibrary]
         - `transform` (_[carla.Transform](#carla.Transform)_) - 包含将此对象的本地空间转换为世界空间所需的位置和旋转。  
     - **返回：** _list([carla.Location](#carla.Location))_  
 
-##### Dunder 方法
+##### 魔术方法
 - <a name="carla.BoundingBox.__eq__"></a>**<font color="#7fb800">\__eq__ </font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**other**=[carla.BoundingBox](#carla.BoundingBox)</font>)  
 如果此和另一个`other`的位置和范围相等，则返回true。
     - **返回：** _bool_  
@@ -653,7 +653,7 @@ Alpha 通道 (0-255)。
         - `b` (_int_)  
         - `a` (_int_)  
 
-##### Dunder 方法
+##### 魔术方法
 - <a name="carla.Color.__eq__"></a>**<font color="#7fb800">\__eq__</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**other**=[carla.Color](#carla.Color)</font>)  
 - <a name="carla.Color.__ne__"></a>**<font color="#7fb800">\__ne__</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**other**=[carla.Color](#carla.Color)</font>)  
 - <a name="carla.Color.__str__"></a>**<font color="#7fb800">\__str__</font>**(<font color="#00a6ed">**self**</font>)  
@@ -675,6 +675,51 @@ Alpha 通道 (0-255)。
 
 ---
 
+
+## carla.CustomV2XBytes<a name="carla.CustomV2XBytes"></a>
+这是定义自定义 V2X 消息字节的数据类型。通过方法 `[carla.Sensor.send](#carla.Sensor.send)` 发送，并作为 [CustomV2XEvent](#carlacustomv2xevent) 的一部分接收。
+
+### 实例变量
+- <a name="carla.CustomV2XBytes.data_size"></a>**<font color="#f8805a">data_size</font>** (_int_)  
+消息的实际字节数。
+
+### 方法
+- <a name="carla.CustomV2XBytes.get"></a>**<font color="#7fb800">get</font>**(<font color="#00a6ed">**self**</font>) 
+获取自定义字节。返回一个包含消息的嵌套字典。它有三个主键：
+    - `DataSize`：int 
+    - `MaxDataSize`：int 
+    - `Bytes`：包含字节的内存视图。 
+    - **返回：** _dict_  
+- <a name="carla.CustomV2XBytes.max_data_size"></a>**<font color="#7fb800">max_data_size</font>**(<font color="#00a6ed">**self**</font>)  
+获取单个消息能够传输的最大数据大小。
+    - **返回：** _int_  
+
+##### 获取器
+- <a name="carla.CustomV2XBytes.get_bytes"></a>**<font color="#7fb800">get_bytes</font>**(<font color="#00a6ed">**self**</font>)  
+获取自定义字节。
+    - **返回：** _bytes_  
+    - **设置器：** _[carla.CustomV2XBytes.set_bytes](#carla.CustomV2XBytes.set_bytes)_  
+- <a name="carla.CustomV2XBytes.get_string"></a>**<font color="#7fb800">get_string</font>**(<font color="#00a6ed">**self**</font>)  
+获取自定义字节的字符串。请注意：这是一种方便的快速测试方法，不会执行任何编码/解码操作。
+    - **返回：** _str_  
+    - **设置器：** _[carla.CustomV2XBytes.set_string](#carla.CustomV2XBytes.set_string)_  
+
+##### 设置器
+- <a name="carla.CustomV2XBytes.set_bytes"></a>**<font color="#7fb800">set_bytes</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**bytes**</font>)  
+从 bytearray 中设置自定义字节。请注意，最多只考虑 `MaxDataSize` 个字节。如果数据量更大，则需要手动分割。
+    - **参数：**
+        - `bytes` (_bytes_)  
+    - **获取器：** _[carla.CustomV2XBytes.get_bytes](#carla.CustomV2XBytes.get_bytes)_  
+- <a name="carla.CustomV2XBytes.set_string"></a>**<font color="#7fb800">set_string</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**string**</font>)  
+直接从字符串设置自定义字节。不传输空终止符。请注意，最多只考虑 `MaxDataSize` 字节。如果数据量较大，则需要手动拆分。注意：这是一种用于快速测试的便捷方法，不执行编码/解码操作。
+    - **参数：**
+        - `string` (_str_)  
+    - **获取器：** _[carla.CustomV2XBytes.get_string](#carla.CustomV2XBytes.get_string)_  
+
+##### 魔术方法
+- <a name="carla.CustomV2XBytes.__str__"></a>**<font color="#7fb800">\__str__</font>**(<font color="#00a6ed">**self**</font>)  
+
+
 ## carla.CustomV2XData<a name="carla.CustomV2XData"></a>
 <small style="display:block;margin-top:-20px;">继承自 _[carla.SensorData](#carla.SensorData)_</small></br>
 这是定义自定义V2X消息的数据类型。作为 [CustomV2XEvent](#carlacustomv2xevent) 的一部分接收。
@@ -685,7 +730,9 @@ Alpha 通道 (0-255)。
 
 ### 方法
 - <a name="carla.CustomV2XData.get"></a>**<font color="#7fb800">get</font>**(<font color="#00a6ed">**self**</font>)  
-获取自定义消息。返回包含消息的嵌套字典。它有两个主键： - `Header` : dict - `Message`: str.  
+获取自定义消息。返回包含消息的嵌套字典。它有 2 个主键： 
+    - `Header` : dict 
+    - `Message`: str.  
     - **返回：** _dict_  
 
 ##### 魔术方法
@@ -727,7 +774,7 @@ Y 像素坐标。
 
 ### 方法
 
-##### Dunder 方法
+##### 魔术方法
 - <a name="carla.DVSEvent.__str__"></a>**<font color="#7fb800">\__str__</font>**(<font color="#00a6ed">**self**</font>)  
 
 ---
@@ -869,7 +916,7 @@ Semantic tag.
 
 ### 方法
 
-##### Dunder 方法
+##### 魔术方法
 - <a name="carla.EnvironmentObject.__str__"></a>**<font color="#7fb800">\__str__</font>**(<font color="#00a6ed">**self**</font>)  
 将环境对象解析为字符串并在命令行中显示它们。  
     - **返回：** _str_  
@@ -898,7 +945,7 @@ Alpha 通道。
         - `b` (_float_)  
         - `a` (_float_)  
 
-##### Dunder 方法
+##### 魔术方法
 - <a name="carla.FloatColor.__eq__"></a>**<font color="#7fb800">\__eq__</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**other**=[carla.FloatColor](#carla.FloatColor)</font>)  
 - <a name="carla.FloatColor.__ne__"></a>**<font color="#7fb800">\__ne__</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**other**=[carla.FloatColor](#carla.FloatColor)</font>)  
 
@@ -976,7 +1023,7 @@ Alpha 通道。
         - `down_ratio` (_float_)  
         - `up_ratio` (_float_)  
 
-##### Dunder 方法
+##### 魔术方法
 - <a name="carla.GearPhysicsControl.__eq__"></a>**<font color="#7fb800">\__eq__</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**other**=[carla.GearPhysicsControl](#carla.GearPhysicsControl)</font>)  
 - <a name="carla.GearPhysicsControl.__ne__"></a>**<font color="#7fb800">\__ne__</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**other**=[carla.GearPhysicsControl](#carla.GearPhysicsControl)</font>)  
 - <a name="carla.GearPhysicsControl.__str__"></a>**<font color="#7fb800">\__str__</font>**(<font color="#00a6ed">**self**</font>)  
@@ -2326,7 +2373,11 @@ X-轴旋转角度。
 每次接收到所需的 GBuffer 纹理时，传感器将调用的函数。 <br> 此函数需要一个包含对象类型 [carla.SensorData](#carla.SensorData) 的参数。 
     - **参数：**
         - `gbuffer_id` (_[carla.GBufferTextureID](#carla.GBufferTextureID)_) - 目标虚幻引擎 GBuffer 纹理的ID。 
-        - `callback` (_function_) - 被调用的函数有一个参数，其中包含接收到的GBuffer纹理。 
+        - `callback` (_function_) - 被调用的函数有一个参数，其中包含接收到的 GBuffer 纹理。 
+- <a name="carla.Sensor.send"></a>**<font color="#7fb800">send</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**message**</font>)
+指示传感器在下一个节拍周期将消息`message`中给出的字节（bytes）发送给所有其他 CustomV2XSensors。
+    - **参数：**
+        - `message` (_[carla.CustomV2XBytes](#carla.CustomV2XBytes)_) - 要发送的数据。注意：单条消息的数据大小有限制，详情请参阅 [carla.CustomV2XBytes](#carla.CustomV2XBytes)。 
 - <a name="carla.Sensor.stop"></a>**<font color="#7fb800">stop</font>**(<font color="#00a6ed">**self**</font>)  
 命令传感器停止监听数据。 
 - <a name="carla.Sensor.stop_gbuffer"></a>**<font color="#7fb800">stop_gbuffer</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**gbuffer_id**</font>)  

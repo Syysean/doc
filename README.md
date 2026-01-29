@@ -43,8 +43,9 @@
 # 只克隆主分支
 git clone -b master --single-branch https://github.com/OpenHUTB/doc
 # 安装依赖
-pip install mkdocs -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
-pip install pymdown-extensions  # pymdownx
+conda create -n mkdocs python=3.11
+conda activate mkdocs
+pip install git+https://github.com/OpenHUTB/mkdocs.git
 pip install -r requirements.txt
 ```
 （可选）安装完成后使用`mkdocs --version`查看是否安装成功。
@@ -52,7 +53,7 @@ pip install -r requirements.txt
 2. 在命令行中进入`doc`目录下，运行：
 ```shell
 # 构建文档（根据Markdown文件生成HTML文件）
-mkdocs build
+# mkdocs build
 # 启动服务
 mkdocs serve
 ```

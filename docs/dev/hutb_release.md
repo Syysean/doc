@@ -7,7 +7,7 @@
 
 
 !!! 注意
-    如果不想了解实现原理，可以直接从该链接直接下载使用： https://gitee.com/OpenHUTB/sw/releases/download/up/hutb_downloader.exe ，双击 hutb_download.exe 后会在当前目录下载整个模拟器（下载或运行时可能会报警告，忽视即可），点击`hutb/CarlaUE4.exe`即可启动模拟器。
+    如果仅使用，可以直接从该链接直接下载： https://gitee.com/OpenHUTB/sw/releases/download/up/hutb_downloader.exe ，双击 hutb_download.exe 后会在当前目录下载整个模拟器（下载或运行时可能会报警告，忽视即可），点击`hutb/CarlaUE4.exe`即可启动模拟器。
 
 
 ## 一、为什么需要这样的工具？
@@ -47,11 +47,28 @@ class GitRepository(object):
     """
     git仓库管理
     """
+
     def __init__(self, local_path, repo_url, branch='master'):
         self.local_path = local_path
         self.repo_url = repo_url
         self.repo = None
         self.initial(repo_url, branch)
+
+    def initial(self, repo_url, branch):
+        """
+        初始化git仓库
+        :param repo_url:
+        :param branch:
+        :return:
+        """
+        if not os.path.exists(self.local_path):
+            os.makedirs(self.local_path)
+
+        git_local_path = os.path.join(self.local_path, '.git')
+        if not is_git_dir(git_local_path):
+            self.repo = Repo.clone_from(repo_url, to_path=self.local_path, branch=branch, progress=Progress(), depth=1)
+        else:
+            self.repo = Repo(self.local_path)
 ```
 这个类采用了面向对象的设计思想，将Git操作封装为对象的方法，提高了代码的可读性和可维护性。
 
@@ -102,7 +119,7 @@ def split_file(input_file, output_dir, chunk_size):
 
 **文件合并函数**：
 
-python
+```python
 def merge_files(input_dir, output_file):
     files = os.listdir(input_dir)
     files.sort()
@@ -114,7 +131,7 @@ def merge_files(input_dir, output_file):
             with open(file_path, 'rb') as f:
                 chunk = f.read()
                 out.write(chunk)
-
+```
 这种分块策略有以下几个优点：
 
 1. 避免了Git对大文件的限制
@@ -163,7 +180,7 @@ def remove_readonly(func, path, _):
 #### 五、打包为可执行文件
 为了让没有Python环境的用户也能使用这个工具，我们将其打包为独立的EXE文件。使用PyInstaller可以轻松实现这一目标：
 
-```bash
+```shell
 pip install pyinstaller
 pyinstaller download_from_git.py --onefile --name hutb_downloader.exe
 ```
@@ -188,7 +205,7 @@ pyinstaller download_from_git.py --onefile --name hutb_downloader.exe
 
 ## 七、性能测试
 
-根据实际测试，在网络带宽足够的情况下，整个下载过程大约需要4-5分钟。这个时间主要包括：
+根据实际测试，在网络带宽足够的情况下，整个下载过程大约 2 分钟，合并和解压等操作大约需要 2 分钟。这个时间主要包括：
 
 1. Git仓库克隆：2-3分钟
 

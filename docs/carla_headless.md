@@ -44,36 +44,36 @@ sudo apt-get install freeglut3-dev mesa-utils
 ### 额外的包
 这些额外的包对于虚幻引擎的运行是必需的。
 
-```shell script
+```shell
 sudo apt install x11-xserver-utils libxrandr-dev
 ```
 
 ### 配置你的 X
 您必须生成与您的 nvdia 兼容的 X，并且兼容在无显示的情况下运行。为此，以下命令有效：
 
-```shell script
+```shell
 sudo nvidia-xconfig -a --use-display-device=None --virtual=1280x1024
 ```
 
 ## 模拟虚拟显示
 运行你自己的 Xorg。这里我使用数字 7，但它可以标记为任何自由数字
-```shell script
+```shell
 sudo nohup Xorg :7 &
 ```
 
 运行辅助远程 VNC-Xserver。这将创建虚拟显示器“8”。
 
-```shell script
+```shell
 /opt/TurboVNC/bin/vncserver :8
 ```
 
 如果一切正常，以下命令应该可以顺利运行。
-```shell script
+```shell
 DISPLAY=:8 vglrun -d :7.0 glxinfo
 ```
 
 注意。这将在 Xserver 7、设备 0 上运行 glxinfo。这意味着您正在选择机器上的 GPU 0。要在其他 GPU（例如 GPU 1）上运行，请运行：
-```shell script
+```shell
 DISPLAY=:8 vglrun -d :7.1 glxinfo
 ```
 
@@ -83,14 +83,14 @@ DISPLAY=:8 vglrun -d :7.1 glxinfo
 
 在运行 nohup Xorg 之前可能需要停止所有 Xorg 服务器。该命令可能因您的系统而异。通常对于 Ubuntu 16.04，您应该使用：
 
-```shell script
+```shell
 sudo service lightdm stop
 ```
 
 
 ## 运行 CARLA
 现在，最后，要在某个 $CARLA_PATH 中的某个 gpu_number 上运行 CARLA，请运行。
-```shell script
+```shell
 DISPLAY=:8 vglrun -d :7.<gpu_number> $CARLA_PATH/CarlaUE4/Binaries/Linux/CarlaUE4
 ```
 

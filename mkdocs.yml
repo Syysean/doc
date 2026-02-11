@@ -34,7 +34,6 @@ extra_javascript:
   - js/umlconvert.js
 
 plugins:
-#  - mkdocs-video
   - search:
       lang: ja
       separator: '[\s\-\.]+'

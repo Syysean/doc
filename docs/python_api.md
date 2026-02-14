@@ -1031,13 +1031,13 @@ Alpha 通道。
 ---
 
 ## carla.GeoLocation<a name="carla.GeoLocation"></a>
-包含地理坐标模拟数据的类。[carla.Map](#carla.Map) 可以使用以下方法转换模拟位置 OpenDRIVE 文件中的 <b><georeference></b> 标记。
+包含地理（Geographical）坐标模拟数据的类。[carla.Map](#carla.Map) 可以通过使用 OpenDRIVE 文件中的标签 <b> &lt;georeference&gt;</b> 来转换模拟位置。
 
 ### 实例变量
-- <a name="carla.GeoLocation.latitude"></a>**<font color="#f8805a">latitude</font>** (_float<small> - 度</small>_)  
-地图上某个点的北/南值。  
-- <a name="carla.GeoLocation.longitude"></a>**<font color="#f8805a">longitude</font>** (_float<small> - 度</small>_)  
-地图上某个点的西/东值。  
+- <a name="carla.GeoLocation.latitude"></a>**<font color="#f8805a">latitude</font>** (_float<small> - 角度</small>_)  
+地图上某个点的纬度值（北/南）。  
+- <a name="carla.GeoLocation.longitude"></a>**<font color="#f8805a">longitude</font>** (_float<small> - 角度</small>_)  
+地图上某个点的经度值（西/东）。  
 - <a name="carla.GeoLocation.altitude"></a>**<font color="#f8805a">altitude</font>** (_float<small> - 米</small>_)  
 相对于地面的高度。 
 
@@ -1734,15 +1734,20 @@ Z 轴上从原点到点的距离。
     - **参数：**
         - `distance` (_float<small> - 米</small>_) - 路径点之间的近似距离。 
     - **返回：** _list([carla.Waypoint](#carla.Waypoint))_  
+- <a name="carla.Map.geolocation_to_transform"></a>**<font color="#7fb800">geolocation_to_transform</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**geo_location**</font>)  
+将给定的以经纬度坐标形式给出的[地理坐标](https://baike.baidu.com/item/%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87/798099) 点`geo_location`转换为模拟器中的位置 [carla.Location](#carla.Location) 。地图的地理位置在 OpenDRIVE 内的 <b> &lt;georeference&gt;</b> 标签中定义。
+    - **参数：**
+        - `geo_location` (_[carla.GeoLocation](#carla.GeoLocation)_)  
+    - **返回：** _[carla.Location](#carla.Location)_  
 - <a name="carla.Map.save_to_disk"></a>**<font color="#7fb800">save_to_disk</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**path**</font>)  
 将当前映射的 .xodr OpenDRIVE 文件保存到磁盘。
     - **参数：**
         - `path` - 保存文件的路径。  
 - <a name="carla.Map.to_opendrive"></a>**<font color="#7fb800">to_opendrive</font>**(<font color="#00a6ed">**self**</font>)  
-以字符串形式返回当前地图的 .xodr OpenDRIVe 文件。
+以字符串形式返回当前地图的 .xodr OpenDRIVE 文件。
     - **返回：** _str_  
 - <a name="carla.Map.transform_to_geolocation"></a>**<font color="#7fb800">transform_to_geolocation</font>**(<font color="#00a6ed">**self**</font>, <font color="#00a6ed">**location**</font>)  
-将模拟中一个点的给定位置 `location` 转换为 [carla.GeoLocation](#carla.GeoLocation)，他表示世界坐标系。地图的地理位置在 OpenDRIVE 标签<b><georeference></b>内定义。
+将模拟器中一个给定点的位置 `location` 转换为世界坐标系中的地理位置 [carla.GeoLocation](#carla.GeoLocation)。地图的地理位置在 OpenDRIVE 的 <b> &lt;georeference&gt;</b> 标签内定义。
     - **参数：**
         - `location` (_[carla.Location](#carla.Location)_)  
     - **返回：** _[carla.GeoLocation](#carla.GeoLocation)_  

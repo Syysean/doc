@@ -504,7 +504,7 @@ points = np.reshape(points, (len(radar_data), 4))
 
 ---
 
-## 广角相机
+## 广角相机  <span id="wide-angle-cameras"></span>
 
 * __RGB 蓝图:__ sensor.camera.rgb.wide_angle_lens
 * __深度蓝图:__ sensor.camera.depth.wide_angle_lens

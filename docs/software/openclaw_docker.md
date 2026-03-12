@@ -149,6 +149,7 @@ docker compose ps
 docker compose run --rm openclaw-cli configure
 ```
 按照向导提示依次配置：
+
 - **Gateway 位置**：选 `Local (this machine)`
 - **Model 提供商**：选 `Custom Provider`
 - **API Base URL**：填 `https://api.deepseek.com`
